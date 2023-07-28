@@ -1,14 +1,14 @@
 import { Layout } from "antd";
 import React from "react";
 import Navbar from "../Navbar/Navbar";
-const { Header, Content, Footer } = Layout;
+const { Header, Footer } = Layout;
 const RootLayout = ({ children }) => {
   return (
-    <Layout>
-      <Header style={{ backgroundColor: "#7dbcea" }}>
+    <Layout className="max-w-screen-xl mx-auto">
+      <Header>
         <Navbar />
       </Header>
-      <Content style={{ height: "90vh" }}>{children}</Content>
+      <div className="bg-white">{children}</div>
       <Footer>This is Footer</Footer>
     </Layout>
   );

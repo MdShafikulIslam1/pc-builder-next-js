@@ -52,8 +52,9 @@ const Navbar = () => {
   ];
   return (
     <Menu
+    theme="dark"
       className="flex justify-center text-lg font-semibold text-gray-50"
-      style={{ backgroundColor: "#7dbcea" }}
+      // style={{ backgroundColor: "#7dbcea" }}
       //   onClick={onClick}
       //   selectedKeys={[current]}
       mode="horizontal"
