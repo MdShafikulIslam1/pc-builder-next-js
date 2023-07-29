@@ -1,37 +1,50 @@
 import { Card, Col, Rate, Row } from "antd";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-
-const desc = ["terrible", "bad", "normal", "good", "wonderful"];
 const ProductCard = ({ products }) => {
   return (
     <Row gutter={[16, 24]} className="mb-8">
       {products?.map((product) => (
         <Col sm={24} md={8} lg={6} key={product.id}>
-          <Link href={`/products/${product?.id}`}>
+          <Link href={`/products/${product?._id}`}>
             <Card
-              className="h-[400px] w-[260px] p-3 overflow-hidden"
+              className="h-[450px] w-full p-3 overflow-hidden"
               hoverable
               cover={
                 <Image
-                className="w-full"
-                  loading="lazy"
+                  style={{
+                    objectFit: "cover",
+                  }}
+                  className="p-2 rounded-lg"
                   src={product.imageUrl}
                   alt="Tech image"
-                  width={260}
-                  height={200}
+                  width="273"
+                  height="183"
                 />
               }
             >
-              <div>
+              <div className="space-y-2">
                 <h1 className="font-bold text-xl text-center">
                   {product?.name}
                 </h1>
-                <Rate disabled defaultValue={product?.individual_rating} />
-                <div className="flex justify-around text-xl font-medium mt-3">
-                  <p>{product?.price}</p>
-                  <p>{product?.status}</p>
+                <div className="text-md">
+                  Category:
+                  <span className="text-md font-medium">
+                    {product?.categories}
+                  </span>
+                </div>
+                <div className="text-md">
+                  Rating:
+                  <Rate disabled defaultValue={product?.individual_rating} />
+                </div>
+                <div className="flex justify-between gap-2">
+                  <p className="rounded-xl border px-2 py-1 bg-gray-200">
+                    Price: <span className="font-bold"> {product?.price}</span>
+                  </p>
+                  <p className="rounded-xl border px-2 py-1 bg-gray-200">
+                    Status:
+                    <span className="font-bold"> {product?.status}</span>
+                  </p>
                 </div>
               </div>
             </Card>

@@ -1,17 +1,20 @@
 import ProductCard from "@/components/productCard/Card";
+import React from "react";
 
-const KeyboardPage = ({data}) => {
+const MonitorPage = ({ data }) => {
+  // console.log(data)
   return (
     <div>
-      <h1>Key board page</h1>
+      <h1>Monitors</h1>
       <ProductCard products={data?.data} />
     </div>
   );
 };
 
-export default KeyboardPage;
+export default MonitorPage;
+
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:5001/keyboards");
+  const res = await fetch("http://localhost:5001/monitors");
   const data = await res.json();
   console.log(data);
   return {
