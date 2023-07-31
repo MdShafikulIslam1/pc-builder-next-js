@@ -1,7 +1,9 @@
-import { Menu } from "antd";
+import { Button, Menu } from "antd";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 const Navbar = () => {
+  const { data: session } = useSession();
   const items = [
     {
       label: <Link href="/">Home</Link>,
@@ -20,7 +22,7 @@ const Navbar = () => {
           key: "motherboard",
         },
         {
-          label:<Link href="/ram">RAM</Link>,
+          label: <Link href="/ram">RAM</Link>,
           key: "ram",
         },
         {
@@ -45,8 +47,21 @@ const Navbar = () => {
         },
       ],
     },
+
     {
       label: <Link href="/pc-builder">PC Builder</Link>,
+      key: "pc builder",
+    },
+    {
+      label: <Link href="/signup">Sign Up</Link>,
+      key: "pc builder",
+    },
+    {
+      label: (
+        <Button onClick={() => signOut()} type="primary" danger>
+          Log Out
+        </Button>
+      ),
       key: "pc builder",
     },
   ];

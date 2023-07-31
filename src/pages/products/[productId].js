@@ -65,7 +65,6 @@ export const getServerSideProps = async (context) => {
   const { productId } = context.params;
   const res = await fetch(`http://localhost:5001/products/${productId}`);
   const data = await res.json();
-  console.log(data);
   return {
     props: {
       product: data,
