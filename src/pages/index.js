@@ -2,9 +2,8 @@ import ProductCard from "@/components/productCard/Card";
 import { useSession } from "next-auth/react";
 import Head from "next/head";
 
-export default function Home({data}) {
-  const {data:session} = useSession()
-  console.log("logged in user",session)
+export default function Home({ data }) {
+  const { data: session } = useSession();
   return (
     <div>
       <Head>
@@ -18,7 +17,7 @@ export default function Home({data}) {
           Check and Select your need Products !
         </p>
       </div>
-      <ProductCard products={data?.data}  />
+      <ProductCard products={data?.data} />
     </div>
   );
 }
@@ -27,7 +26,15 @@ export default function Home({data}) {
 //   return <RootLayout>{page}</RootLayout>;
 // };
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:5001/products");
+  // if (typeof window === "undefined") {
+  //   return {
+  //     props: {
+  //       data: [],
+  //     },
+  //   };
+  // }
+
+  const res = await fetch(`${process.env.URL}/products`);
   const data = await res.json();
   return {
     props: {

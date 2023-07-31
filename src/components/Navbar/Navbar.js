@@ -47,14 +47,13 @@ const Navbar = () => {
         },
       ],
     },
-
     {
       label: <Link href="/pc-builder">PC Builder</Link>,
       key: "pc builder",
     },
     {
       label: <Link href="/signup">Sign Up</Link>,
-      key: "pc builder",
+      key: "signup",
     },
     {
       label: (
@@ -62,18 +61,15 @@ const Navbar = () => {
           Log Out
         </Button>
       ),
-      key: "pc builder",
+      key: "logout",
     },
   ];
   return (
     <Menu
       className="flex justify-center text-lg font-semibold text-gray-50"
       style={{ backgroundColor: "#7dbcea" }}
-      //   onClick={onClick}
-      //   selectedKeys={[current]}
       mode="horizontal"
       items={items}
-      //   multiple={true}
     />
   );
 };

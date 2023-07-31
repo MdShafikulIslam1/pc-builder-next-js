@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 
 const PcBuilderPage = ({ data }) => {
-  console.log("pc builder", data);
   const items = [
     {
       title: "CPU/Processor",
@@ -67,7 +66,7 @@ const PcBuilderPage = ({ data }) => {
 export default PcBuilderPage;
 
 export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:5001/products");
+  const res = await fetch(`${process.env.URL}/products`);
   const data = await res.json();
   return {
     props: {

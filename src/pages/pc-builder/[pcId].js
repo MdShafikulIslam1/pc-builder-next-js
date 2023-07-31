@@ -1,7 +1,6 @@
 import React from "react";
 
 const PcBuilderProduct = ({ data }) => {
-  console.log("pc build dynamic page", data);
   return (
     <div>
       <h>This is pc builder product page.</h>
@@ -12,7 +11,7 @@ const PcBuilderProduct = ({ data }) => {
 export default PcBuilderProduct;
 export const getServerSideProps = async (context) => {
   const { pcId } = context.params;
-  const res = await fetch(`http://localhost:5001/products/${pcId}`);
+  const res = await fetch(`${process.env.URL}/products/${pcId}`);
   const data = await res.json();
   return {
     props: {

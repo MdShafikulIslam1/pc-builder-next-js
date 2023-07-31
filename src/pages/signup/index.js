@@ -1,10 +1,10 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import { signIn } from "next-auth/react";
 const onFinish = (values) => {
-  console.log("Success:", values);
+  // console.log("Success:", values);
 };
 const onFinishFailed = (errorInfo) => {
-  console.log("Failed:", errorInfo);
+  // console.log("Failed:", errorInfo);
 };
 const SignUpPage = () => {
   return (
@@ -70,12 +70,13 @@ const SignUpPage = () => {
             span: 16,
           }}
         >
-          <Button
+          <Button 
+          className="bg-gray-200"
             block
-            type="primary"
+            type="default"
             onClick={() =>
               signIn("github", {
-                callbackUrl: "http://localhost:3000/",
+                callbackUrl: "https://pc-builder-next-js-mdshafikulislam1.vercel.app",
               })
             }
           >

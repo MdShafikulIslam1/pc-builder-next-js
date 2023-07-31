@@ -12,7 +12,7 @@ const ProcessorPage = ({data}) => {
 
 export default ProcessorPage;
 export const getStaticProps = async () => {
-    const res = await fetch("http://localhost:5001/processors");
+    const res = await fetch(`${process.env.URL}/processors`);
     const data = await res.json();
     console.log(data);
     return {

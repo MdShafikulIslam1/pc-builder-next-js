@@ -12,7 +12,7 @@ const StorageDevicePage = ({data}) => {
 export default StorageDevicePage
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:5001/storages");
+  const res = await fetch(`${process.env.URL}/storages`);
   const data = await res.json();
   return {
     props: {

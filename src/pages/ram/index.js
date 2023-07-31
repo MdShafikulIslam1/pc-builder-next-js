@@ -11,7 +11,7 @@ const RAMPage = ({data}) => {
 
 export default RAMPage
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:5001/rams");
+  const res = await fetch(`${process.env.URL}/rams`);
   const data = await res.json();
   console.log(data);
   return {
